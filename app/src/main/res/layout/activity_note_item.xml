@@ -63,9 +63,48 @@
             android:layout_marginTop="5dp"
             android:tint="@color/coloricon"
             app:srcCompat="@drawable/ic_delete_black_24dp" />
-        <!--app:srcCompat="@drawable/ic_pets_24px"-->
+        <ImageView
+            android:id="@+id/itipe"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="5dp"
+            android:tint="@color/coloricon"
+            app:srcCompat="@drawable/ic_delete_black_24dp" />
 
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:height="100dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:weightSum="3">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:id="@+id/txt_delete"
+            android:gravity="center_vertical"
+            android:text="Deleted"
+            android:clickable="false"
+            android:layout_weight="2"
+            android:hapticFeedbackEnabled="true"
+            android:textColor="@android:color/white"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:id="@+id/txt_undo"
+            android:text="Undo"
+            android:clickable="false"
+            android:layout_weight="1"
+            android:textColor="@color/colortext"/>
+
+    </LinearLayout>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat >

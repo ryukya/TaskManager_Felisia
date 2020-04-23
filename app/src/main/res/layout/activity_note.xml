@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:hint="Title"
+        android:hint="@string/title"
         android:inputType="textPersonName" />
 
     <Spinner
@@ -32,14 +32,14 @@
         android:calendarViewShown="false"
         android:datePickerMode="spinner"
         android:scrollbarSize="30dp" />
-  
+
 
     <EditText
         android:id="@+id/editDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="Description"
+        android:hint="@string/desc"
         android:inputType="textMultiLine" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Not Done"
+        android:text="@string/default_stat"
         android:visibility="visible" />
 
     <Button
@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
-        android:text="Save"
+        android:text="@string/save"
         android:textColor="#ffffffff"
         android:theme="@style/Widget.AppCompat.Button" />
 

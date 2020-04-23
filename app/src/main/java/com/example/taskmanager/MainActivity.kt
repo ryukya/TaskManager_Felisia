@@ -12,6 +12,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.hudomju.swipe.SwipeToDismissTouchListener
+import com.hudomju.swipe.adapter.ListViewAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_note_item.*
 
@@ -31,7 +33,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         loadselectAll()
+        listnotes.onItemClickListener = AdapterView.OnItemClickListener {
+                adapterView, view, position, id ->
+            Toast.makeText(this, "Click on " + listNotes[position].title, Toast.LENGTH_SHORT).show()
 
+        }
 
 
     }
@@ -46,8 +52,7 @@ class MainActivity : AppCompatActivity() {
         val id = item.getItemId()
 
         if (id == R.id.help) {
-            Toast.makeText(this, "Click plus button to create tasks. " +
-                    "Click Pencil to update. Click icon to delete", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.how), Toast.LENGTH_LONG).show()
         }
         return super.onOptionsItemSelected(item)
     }
@@ -117,15 +122,15 @@ class MainActivity : AppCompatActivity() {
             vh.tDate.text = tDate
             vh.tStatus.text = mNote.status
             if(mNote.type=="Game"){
-                vh.ivDelete.setImageResource(R.drawable.ic_sports_esports_24px)
+                vh.ivType.setImageResource(R.drawable.ic_sports_esports_24px)
             }else if(mNote.type=="Cooking"){
-                vh.ivDelete.setImageResource(R.drawable.ic_local_dining_24px)
+                vh.ivType.setImageResource(R.drawable.ic_local_dining_24px)
             }else if(mNote.type=="Groceries"){
-                vh.ivDelete.setImageResource(R.drawable.ic_local_grocery_store_24px)
+                vh.ivType.setImageResource(R.drawable.ic_local_grocery_store_24px)
             }else if(mNote.type=="Mail"){
-                vh.ivDelete.setImageResource(R.drawable.ic_email_24px)
+                vh.ivType.setImageResource(R.drawable.ic_email_24px)
             }else if(mNote.type=="Pet Walk"){
-                vh.ivDelete.setImageResource(R.drawable.ic_pets_24px)
+                vh.ivType.setImageResource(R.drawable.ic_pets_24px)
             }
 
             vh.ivEdit.setOnClickListener {
@@ -138,6 +143,7 @@ class MainActivity : AppCompatActivity() {
                 dbManager.delete("Id=?", selectionArgs)
                 loadselectAll()
             }
+
 
             return view
         }
@@ -172,6 +178,7 @@ class MainActivity : AppCompatActivity() {
         val tStatus: TextView
         val ivEdit: ImageView
         val ivDelete: ImageView
+        val ivType: ImageView
 
         init {
             this.tvTitle = view?.findViewById(R.id.tTitle) as TextView
@@ -179,6 +186,7 @@ class MainActivity : AppCompatActivity() {
             this.tStatus = view?.findViewById(R.id.tstatus) as TextView
             this.ivEdit = view?.findViewById(R.id.iEdit) as ImageView
             this.ivDelete = view?.findViewById(R.id.iDelete) as ImageView
+            this.ivType = view?.findViewById(R.id.itipe) as ImageView
         }
     }
 }
