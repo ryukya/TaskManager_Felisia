@@ -91,7 +91,17 @@ class MainActivity : AppCompatActivity() {
             vh.tvTitle.text = mNote.title
             vh.tDate.text = mNote.due_date
             vh.tStatus.text = mNote.status
-            vh.ivType.text=mNote.type
+            if(mNote.type=="Game"){
+                vh.ivDelete.setImageResource(R.drawable.ic_sports_esports_24px)
+            }else if(mNote.type=="Cooking"){
+                vh.ivDelete.setImageResource(R.drawable.ic_local_dining_24px)
+            }else if(mNote.type=="Groceries"){
+                vh.ivDelete.setImageResource(R.drawable.ic_local_grocery_store_24px)
+            }else if(mNote.type=="Mail"){
+                vh.ivDelete.setImageResource(R.drawable.ic_email_24px)
+            }else if(mNote.type=="Pet Walk"){
+                vh.ivDelete.setImageResource(R.drawable.ic_pets_24px)
+            }
 
             vh.ivEdit.setOnClickListener {
                 updateNote(mNote)
@@ -137,7 +147,6 @@ class MainActivity : AppCompatActivity() {
         val tStatus: TextView
         val ivEdit: ImageView
         val ivDelete: ImageView
-        val ivType: TextView
 
         init {
             this.tvTitle = view?.findViewById(R.id.tTitle) as TextView
@@ -145,7 +154,6 @@ class MainActivity : AppCompatActivity() {
             this.tStatus = view?.findViewById(R.id.tstatus) as TextView
             this.ivEdit = view?.findViewById(R.id.iEdit) as ImageView
             this.ivDelete = view?.findViewById(R.id.iDelete) as ImageView
-            this.ivType = view?.findViewById(R.id.iTypes) as TextView
         }
     }
 }
