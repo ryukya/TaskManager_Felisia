@@ -91,6 +91,7 @@ class MainActivity : AppCompatActivity() {
             vh.tvTitle.text = mNote.title
             vh.tDate.text = mNote.due_date
             vh.tStatus.text = mNote.status
+            vh.ivType.text=mNote.type
 
             vh.ivEdit.setOnClickListener {
                 updateNote(mNote)
@@ -136,6 +137,7 @@ class MainActivity : AppCompatActivity() {
         val tStatus: TextView
         val ivEdit: ImageView
         val ivDelete: ImageView
+        val ivType: TextView
 
         init {
             this.tvTitle = view?.findViewById(R.id.tTitle) as TextView
@@ -143,6 +145,7 @@ class MainActivity : AppCompatActivity() {
             this.tStatus = view?.findViewById(R.id.tstatus) as TextView
             this.ivEdit = view?.findViewById(R.id.iEdit) as ImageView
             this.ivDelete = view?.findViewById(R.id.iDelete) as ImageView
+            this.ivType = view?.findViewById(R.id.iTypes) as TextView
         }
     }
 }

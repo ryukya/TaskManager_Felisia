@@ -28,9 +28,10 @@
     <DatePicker
         android:id="@+id/editDate"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="100dp"
         android:calendarViewShown="false"
-        android:datePickerMode="spinner" />
+        android:datePickerMode="spinner"
+        android:scrollbarSize="30dp" />
   
 
     <EditText
@@ -46,7 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Not Done" />
+        android:text="Not Done"
+        android:visibility="visible" />
 
     <Button
         android:id="@+id/btSave"

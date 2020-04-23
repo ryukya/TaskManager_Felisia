@@ -11,7 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import kotlinx.android.synthetic.main.activity_note.*
 
-class NoteActivity : AppCompatActivity() {
+class NoteActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     var id = 0
     var types= "Meeting"
     lateinit var spinner: Spinner
@@ -42,23 +42,16 @@ class NoteActivity : AppCompatActivity() {
             }
         } catch (ex: Exception) {
         }
-       /* spinner = findViewById(R.id.sType)
+        spinner = findViewById(R.id.sType)
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.type_arrays,
             android.R.layout.simple_spinner_item
         )
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = adapter
         spinner.onItemSelectedListener = this
-    }
-    override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val text: String = parent?.getItemAtPosition(position).toString()
-        types = text
-    } */
 
 
         btSave.setOnClickListener {
@@ -67,6 +60,7 @@ class NoteActivity : AppCompatActivity() {
             var values = ContentValues()
             values.put("Title", editTitle.text.toString())
             values.put("Desc", editDesc.text.toString())
+
             values.put("Type", types)
             var day=editDate.dayOfMonth.toString()
             var month =editDate.month.toString()
@@ -97,6 +91,14 @@ class NoteActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+    override  fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        val text: String = parent?.getItemAtPosition(position).toString()
+       types = text
     }
 }
 
