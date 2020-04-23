@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">TaskManager</string>
+    <string name="stat">Status: </string>
     <string name="help">Help</string>
-    <string name="how">Click: /n plus button to create tasks. /n Pencil to update./n Trash to delete</string>
+    <string name="how">Click: Plus button to create tasks. Pencil to update. Trash to delete</string>
     <string name="type_prompt">Choose task type</string>
-    <string name="title">TaskManager</string>
-    <string name="desc">Help</string>
+    <string name="title">Task title</string>
+    <string name="desc">Description of the task</string>
     <string name="save">Save</string>
+    <string name="emptynote">Title or description can not be empty!</string>
     <string name="default_stat">Not Done</string>
     <string-array name="type_arrays">
         <item>Pet Walk</item>

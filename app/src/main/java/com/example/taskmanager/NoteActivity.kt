@@ -55,41 +55,48 @@ class NoteActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
 
         btSave.setOnClickListener {
-            var dbManager = DbManager(this)
+            if (editTitle.text.toString().isEmpty() || editTitle.text.toString().isEmpty() )
+            {
+            Toast.makeText(this, getString(R.string.emptynote), Toast.LENGTH_LONG).show()
+        } else{
+                var dbManager = DbManager(this)
 
-            var values = ContentValues()
-            values.put("Title", editTitle.text.toString())
-            values.put("Desc", editDesc.text.toString())
+                var values = ContentValues()
+                values.put("Title", editTitle.text.toString())
+                values.put("Desc", editDesc.text.toString())
 
-            values.put("Type", types)
-            var day=editDate.dayOfMonth.toString()
-            var month =editDate.month.toString()
-            var year =editDate.year.toString()
-            var sep="/"
-            var t_date= day+sep+month+sep+year //ex 01/23/2020
-            values.put("Due_date", t_date.toString())
-            values.put("Status", vStat.text.toString())
+                values.put("Type", types)
+                var day=editDate.dayOfMonth.toString()
+                var month =editDate.month.toString()
+                var year =editDate.year.toString()
+                var sep="/"
+                var t_date= day+sep+month+sep+year //ex 01/23/2020
+                values.put("Due_date", t_date.toString())
+                values.put("Status", vStat.text.toString())
 
-            if (id == 0) {
-                val modelID = dbManager.insert(values)
+                if (id == 0) {
+                    val modelID = dbManager.insert(values)
 
-                if (modelID > 0) {
-                    Toast.makeText(this, "Task saved!", Toast.LENGTH_LONG).show()
-                    finish()
+                    if (modelID > 0) {
+                        Toast.makeText(this, "Task saved!", Toast.LENGTH_LONG).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Fail to save!", Toast.LENGTH_LONG).show()
+                    }
                 } else {
-                    Toast.makeText(this, "Fail to save!", Toast.LENGTH_LONG).show()
-                }
-            } else {
-                var selectionArs = arrayOf(id.toString())
-                val modelID = dbManager.update(values, "Id=?", selectionArs)
+                    var selectionArs = arrayOf(id.toString())
+                    val modelID = dbManager.update(values, "Id=?", selectionArs)
 
-                if (modelID > 0) {
-                    Toast.makeText(this, "Task saved!", Toast.LENGTH_LONG).show()
-                    finish()
-                } else {
-                    Toast.makeText(this, "Fail to save!", Toast.LENGTH_LONG).show()
+                    if (modelID > 0) {
+                        Toast.makeText(this, "Task saved!", Toast.LENGTH_LONG).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Fail to save!", Toast.LENGTH_LONG).show()
+                    }
                 }
+
             }
+
         }
     }
 

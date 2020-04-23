@@ -57,7 +57,11 @@ class DbManager {
         val count = db!!.update(dbTable, values, selection, selectionargs)
         return count
     }
+    fun updateStatus(values: ContentValues, selection: String, selectionargs: Array<String>): Int {
 
+        val count = db!!.update(dbTable, values, selection, selectionargs)
+        return count
+    }
     inner class DatabaseHelper : SQLiteOpenHelper {
 
         var context: Context? = null

@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NoteActivity"
     android:orientation="vertical"
-    android:padding="15dp">
+    android:padding="15dp"
+    tools:context=".NoteActivity">
 
     <EditText
         android:id="@+id/editTitle"
@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:entries="@array/type_arrays"
-        android:prompt="@string/type_prompt"
-        android:hint="Type" />
+        android:hint="Type"
+        android:prompt="@string/type_prompt" />
 
     <DatePicker
         android:id="@+id/editDate"
@@ -33,22 +33,40 @@
         android:datePickerMode="spinner"
         android:scrollbarSize="30dp" />
 
-
     <EditText
         android:id="@+id/editDesc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:hint="@string/desc"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:maxHeight="90dp" />
 
-    <TextView
-        android:id="@+id/vStat"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="@string/default_stat"
-        android:visibility="visible" />
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/stats"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/stat"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/vStat"
+            android:layout_width="fill_parent"
+            android:layout_height="20dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="@string/default_stat"
+            android:visibility="visible" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btSave"

@@ -1,5 +1,6 @@
 package com.example.taskmanager
 
+import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         val id = item.getItemId()
 
         if (id == R.id.help) {
-            Toast.makeText(this, getString(R.string.how), Toast.LENGTH_LONG).show()
+            resources.getColor(R.color.colorGreen)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -132,6 +133,11 @@ class MainActivity : AppCompatActivity() {
             }else if(mNote.type=="Pet Walk"){
                 vh.ivType.setImageResource(R.drawable.ic_pets_24px)
             }
+            if (mNote.status=="Done"){
+                vh.tStatus.setTextColor(resources.getColor(R.color.colorGreen))
+                vh.ivType.setBackgroundColor(resources.getColor(R.color.colorGreen))
+
+            }
 
             vh.ivEdit.setOnClickListener {
                 updateNote(mNote)
@@ -141,6 +147,14 @@ class MainActivity : AppCompatActivity() {
                 var dbManager = DbManager(this.context!!)
                 val selectionArgs = arrayOf(mNote.id.toString())
                 dbManager.delete("Id=?", selectionArgs)
+                loadselectAll()
+            }
+            vh.ivType.setOnClickListener {
+                var dbManager = DbManager(this.context!!)
+                val selectionArgs = arrayOf(mNote.id.toString())
+                var values = ContentValues()
+                values.put("Status", "Done")
+                dbManager.updateStatus(values,"Id=?", selectionArgs)
                 loadselectAll()
             }
 
