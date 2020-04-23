@@ -9,13 +9,13 @@
     tools:context=".MainActivity">
 
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/listnotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clickable="true">
 
-    </androidx.recyclerview.widget.RecyclerView>
+    </ListView>
 
 
     <com.google.android.material.bottomappbar.BottomAppBar

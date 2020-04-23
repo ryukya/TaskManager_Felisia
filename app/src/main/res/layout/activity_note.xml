@@ -25,13 +25,13 @@
         android:prompt="@string/type_prompt"
         android:hint="Type" />
 
-    <EditText
+    <DatePicker
         android:id="@+id/editDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:hint="Date"
-        android:inputType="date" />
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"/>
+  
 
     <EditText
         android:id="@+id/editDesc"

@@ -26,7 +26,7 @@ class DbManager {
                 colTitle + " TEXT, " +
                 colDesc + " TEXT, " +
                 colType + " varchar, " +
-                colDue + " date, " +
+                colDue + " varchar, " +
                 colStat + " varchar);"
     private var db: SQLiteDatabase? = null
 

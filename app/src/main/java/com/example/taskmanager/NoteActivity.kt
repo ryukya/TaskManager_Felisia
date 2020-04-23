@@ -3,6 +3,7 @@ package com.example.taskmanager
 import android.content.ContentValues
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.DatePicker
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_note.*
 
@@ -19,7 +20,17 @@ class NoteActivity : AppCompatActivity() {
             if (id != 0) {
                 editTitle.setText(bundle.getString("MainActTitle"))
                 editDesc.setText(bundle.getString("MainActDesc"))
-                editDate.setText(bundle.getString("MainActDueDate"))
+                var date=bundle.getString("MainActDueDate") //ex 01/mm/2020
+                var monthOfYear= date?.substring(3,4)?.toInt()
+                var year= date?.substring(6,9)?.toInt()
+                var dayOfMonth= date?.substring(0,1)?.toInt()
+                if (monthOfYear != null) {
+                    if (year != null) {
+                        if (dayOfMonth != null) {
+                            editDate.init( year,  monthOfYear,  dayOfMonth)
+                        }
+                    }
+                }
                 sType.prompt=(bundle.getString("MainActType"))
                 vStat.setText(bundle.getString("MainActStat"))
 
@@ -34,7 +45,12 @@ class NoteActivity : AppCompatActivity() {
             values.put("Title", editTitle.text.toString())
             values.put("Desc", editDesc.text.toString())
             values.put("Type", types)
-            values.put("Due_date", editDate.text.toString())
+            var day=editDate.dayOfMonth.toString()
+            var month =editDate.month.toString()
+            var year =editDate.year.toString()
+            var sep="/"
+            var t_date= day+sep+month+sep+year //ex 01/23/2020
+            values.put("Due_date", t_date.toString())
             values.put("Status", vStat.text.toString())
 
             if (id == 0) {
@@ -59,4 +75,8 @@ class NoteActivity : AppCompatActivity() {
             }
         }
     }
+}
+
+private fun DatePicker.init(year: Int, monthOfYear: Int, dayOfMonth: Int) {
+
 }
