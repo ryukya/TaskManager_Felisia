@@ -8,6 +8,8 @@ import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import android.view.Menu
+import android.view.MenuItem
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val floatingActionButton = findViewById<FloatingActionButton>(R.id.Add)
         floatingActionButton.setOnClickListener {
             var intent = Intent(this, NoteActivity::class.java)
@@ -32,6 +35,23 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu
+        menuInflater.inflate(R.menu.menubar, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item
+        val id = item.getItemId()
+
+        if (id == R.id.help) {
+            Toast.makeText(this, "Click plus button to create tasks. " +
+                    "Click Pencil to update. Click icon to delete", Toast.LENGTH_LONG).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onResume() {
         super.onResume()
         loadselectAll()
