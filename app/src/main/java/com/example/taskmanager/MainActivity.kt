@@ -11,6 +11,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_note_item.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -89,7 +90,11 @@ class MainActivity : AppCompatActivity() {
             var mNote = notesList[position]
 
             vh.tvTitle.text = mNote.title
-            vh.tDate.text = mNote.due_date
+            var tDate=mNote.due_date
+            var mmonth= tDate?.substring(3,4)?.toInt()
+             mmonth = mmonth?.plus(1)
+            tDate=tDate?.replaceRange(3,4,mmonth.toString())
+            vh.tDate.text = tDate
             vh.tStatus.text = mNote.status
             if(mNote.type=="Game"){
                 vh.ivDelete.setImageResource(R.drawable.ic_sports_esports_24px)
