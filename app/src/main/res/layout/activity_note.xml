@@ -28,9 +28,9 @@
     <DatePicker
         android:id="@+id/editDate"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:datePickerMode="spinner"
-        android:calendarViewShown="false"/>
+        android:layout_height="70dp"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
   
 
     <EditText
