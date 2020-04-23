@@ -55,7 +55,7 @@ class NoteActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
 
         btSave.setOnClickListener {
-            if (editTitle.text.toString().isEmpty() || editTitle.text.toString().isEmpty() )
+            if ( editTitle.text.toString().isEmpty() ||editDesc.text.toString().isEmpty() )
             {
             Toast.makeText(this, getString(R.string.emptynote), Toast.LENGTH_LONG).show()
         } else{

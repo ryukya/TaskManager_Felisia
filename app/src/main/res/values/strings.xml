@@ -9,6 +9,13 @@
     <string name="save">Save</string>
     <string name="emptynote">Title or description can not be empty!</string>
     <string name="default_stat">Not Done</string>
+
+    <string name="d_menu">How to Use</string>
+    <string name="d_cont">Click: \nPlus button to create tasks \nPencil to update \nTrash to delete
+    \nTask type icon to mark it as Done \nTasks marked as done will have green color </string>
+    <string name="d_ok">Now you can use task manager!!</string>
+    <string name="d_btn">OK</string>
+
     <string-array name="type_arrays">
         <item>Pet Walk</item>
         <item>Mail</item>

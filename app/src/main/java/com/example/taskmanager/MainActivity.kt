@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.*
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.hudomju.swipe.SwipeToDismissTouchListener
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         loadselectAll()
         listnotes.onItemClickListener = AdapterView.OnItemClickListener {
                 adapterView, view, position, id ->
-            Toast.makeText(this, "Click on " + listNotes[position].title, Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Complete task title:" + listNotes[position].title, Toast.LENGTH_SHORT).show()
 
         }
 
@@ -53,7 +54,16 @@ class MainActivity : AppCompatActivity() {
         val id = item.getItemId()
 
         if (id == R.id.help) {
-            resources.getColor(R.color.colorGreen)
+           // resources.getColor(R.color.colorGreen)
+            val builder = AlertDialog.Builder(this@MainActivity)
+            builder.setTitle(getString(R.string.d_menu))
+            builder.setMessage(getString(R.string.d_cont))
+            builder.setNeutralButton(getString(R.string.d_btn)){_,_ ->
+                Toast.makeText(applicationContext,getString(R.string.d_ok),Toast.LENGTH_SHORT).show()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
         }
         return super.onOptionsItemSelected(item)
     }
